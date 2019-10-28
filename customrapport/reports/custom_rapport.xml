@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+   <data>
+       <template id="report_customrapport">
+             <t t-call="report.html_container">
+                 <t t-foreach="docs" t-as="o">
+                      <t t-call="report.internal_layout">
+                            <div class="page">
+                                <div class="oe_structure"/>
+                                     <!-- Add view format of report here- -->
+                                  <h2 align="center"> Mon Rapport </h2>
+                                   <p>This object's name is <span t-field="o.name"/></p>
+                                   <p>This object's name is <span t-field="o.surname"/></p>
+                                   <img src="customrapport/reports/Logo_seul.png"/>
+
+                             </div>
+                      </t>
+                 </t>
+            </t>
+       </template>
+    </data>
+</openerp>

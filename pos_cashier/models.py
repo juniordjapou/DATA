@@ -43,7 +43,7 @@ class inherit_pos_order_for_cashiers(models.Model):
             'pos_reference': order['name'],
             'cashier_name': order['cashier_name']
         }, context)
-            inherit_pos_order_for_cashiers()
+            
 
             for payments in order['statement_ids']:
                 payment = payments[2]

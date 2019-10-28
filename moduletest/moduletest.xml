@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="moduletest_form" model="ir.ui.view">
+            <field name="name">moduletest.form</field>
+            <field name="model">moduletest.moduletest</field>
+            <field name="arch" type="xml">
+                <form string="moduletest">
+
+                    <label string="First Name"/>
+                    <field name="firstname"/>
+
+                    <label string="Last Name"/>
+                    <field name="lastname"/>
+
+                    <notebook>
+                        <page string="Books">
+                            <field name="book_ids"/>
+                        </page>
+                    </notebook>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="moduletest_tree">
+            <field name="name">moduletest.tree</field>
+            <field name="model">moduletest.moduletest</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="moduletest">
+                    <field name="firstname"/>
+                    <field name="lastname"/>
+                    <field name="book_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_moduletest" model="ir.actions.act_window">
+            <field name="name">moduletest.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">moduletest.moduletest</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                <!-- Add Text Here -->
+              </p><p>
+                <!-- More details about what a user can do with this object will be OK -->
+              </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="book_form">
+            <field name="name">book.form</field>
+            <field name="model">moduletest.book</field>
+            <field name="arch" type="xml">
+             <form string="Book" >
+                    <label string="Title" />
+                    <field name="title"/>
+                    <label string="Genre" />
+                    <field name="genre"/>
+                    <label string="Author" />
+                    <field name="author_id"/>
+             </form>
+            </field>
+        </record>
+
+         <record model="ir.ui.view" id="book_tree">
+            <field name="name">book.tree</field>
+            <field name="model">moduletest.book</field>
+            <field name="arch" type="xml">
+            <tree string="Book">
+                <field name="title"/>
+                <field name="genre"/>
+                <field name="author_id"/>
+            </tree>
+            </field>
+        </record>
+
+     <record model="ir.actions.act_window" id="action_book">
+        <field name="name">Book</field>
+        <field name="res_model">moduletest.book</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+     </record>
+
+        <!-- This Menu Item will appear in the Upper bar, That's why It needs NO parent or action -->
+        <menuitem id="moduletest" name="Module_Test"/>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="moduletest_parent" name="Module_Test" parent="moduletest" />
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="moduletest_action1" name="Auteur" parent="moduletest_parent" action="action_moduletest"/>
+        <menuitem name="Books" id="choix_book" parent="moduletest_parent" action="action_book"/>
+
+    </data>
+</openerp>

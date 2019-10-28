@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            id="action_report_custom_rapport"
+            string="Mon Rapport"
+            model="customrapport.customrapport"
+            report_type="qweb-pdf"
+            file="customrapport.report_customrapport"
+            name="customrapport.report_customrapport"/>
+    </data>
+</openerp>

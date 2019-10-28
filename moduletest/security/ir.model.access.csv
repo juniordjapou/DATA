@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_moduletest_moduletest,moduletest.moduletest,model_moduletest_moduletest,,1,0,0,0
+access_moduletest_book,moduletest.book,model_moduletest_book,,1,0,0,0
