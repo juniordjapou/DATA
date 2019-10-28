@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="module_form" model="ir.ui.view">
+            <field name="name">module.form</field>
+            <field name="model">module.module</field>
+            <field name="arch" type="xml">
+                <form string="module">
+                    <label string="First Name"/>
+                    <field name ="first_name"/>
+                    <label string="Last Name"/>
+                    <field name ="last_name"/>
+
+                    <notebook colspan="3">
+                        <page string="Books">
+                            <field name="book_ids"/>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="module_tree">
+            <field name="name">module.tree</field>
+            <field name="model">module.module</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Module" >
+                    <field name="first_name"/>
+                    <field name="last_name"/>
+                    <field name="book_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="module_action" model="ir.actions.act_window">
+            <field name="name">module.action</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">module.module</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                 Add Text Here
+              </p><p>
+                <script type="text/javascript">
+                    function hello(){
+                        alert('Hello!');
+                    }
+                </script>
+                 more details about what a user can do with this object will be ok
+                <p> <button name="envoyer" value="Envoyer" onclick="hello();"/> </p>
+              </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="book_form">
+        <field name="name">book.form</field>
+        <field name="model">book.book</field>
+        <field name="arch" type="xml">
+            <form string="Book" >
+                <label string="Title" />
+                <field name="title"/>
+                <label string="Genre" />
+                <field name="genre"/>
+                <label string="Author" />
+                <field name="author_id"/>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="book_tree">
+        <field name="name">book.tree</field>
+        <field name="model">book.book</field>
+        <field name="arch" type="xml">
+            <tree string="Book" >
+                <field name="title"/>
+                <field name="genre"/>
+                <field name="author_id"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="action_book">
+        <field name="name">book.action</field>
+        <field name="res_model">book.book</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        <!-- Menu root-->
+        <menuitem id="module" name="Module"/>
+
+        <!-- This Menu Item Must have a parent -->
+        <menuitem id="menu" name="Module" parent="module"/>
+
+        <menuitem id="menu_action1" name="Auteur" parent="menu" action="module_action"/>
+        <menuitem id="menu_action2" name="Books" parent="menu" action="action_book"/>
+
+    </data>
+</openerp>
